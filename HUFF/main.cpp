@@ -127,7 +127,10 @@ int main(int argc, char* argv[])
 		}
 		HuffmanTreeEncoder->EncodeFileWithTree(input_path, tree_file, output_path);
 	}
-
+	else {
+		cout << "No valid parameters were found. Try 'HUFF -h' for help.  \n";
+		return(1);		// Break if we were not given a valid parameter
+	}
 
 	auto endTime = chrono::high_resolution_clock::now();											// End the clock.
 	float duration = chrono::duration_cast<chrono::milliseconds>(endTime - beginTime).count();		// Calculate the time difference

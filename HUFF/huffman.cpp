@@ -383,9 +383,10 @@ void Huffman::DecodeFile_(ifstream &file_input, ofstream &file_output)
 			file_input.read(&current_char, 1);	// Read in the new byte, then convert it below.
 			currentByte = unsigned char(current_char);
 			iteration = 0;						// Restart this iterator
-			if (!file_input)					// FIXED BUG: Check that the file input is not at the end.
+
+			if (!file_input)					// FIXED BUG from first submission : Check that the file input is not at the end.
 			{
-				break;
+				break;							// We need to break in the case that the EOF flag was set. This prevents extraneous bytes from being written at the end.
 			}
 		}
 
